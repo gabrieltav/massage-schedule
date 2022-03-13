@@ -1,12 +1,10 @@
-package com.msoft.agendmass.entities;
+package com.msoft.agendmass.dto;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-import javax.persistence.Entity;
+import com.msoft.agendmass.entities.Massage;
 
-@Entity
-public class MassageService implements Serializable {
+public class MassageDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
@@ -15,15 +13,23 @@ public class MassageService implements Serializable {
 	private Double price;
 	private String imgUrl;
 	
-	public MassageService() {
+	public MassageDTO() {
 	}
 
-	public MassageService(Long id, String title, String description, Double price, String imgUrl) {
+	public MassageDTO(Long id, String title, String description, Double price, String imgUrl) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.price = price;
 		this.imgUrl = imgUrl;
+	}
+	
+	public MassageDTO(Massage entity) {
+		id = entity.getId();
+		title = entity.getTitle();
+		description = entity.getDescription();
+		price = entity.getPrice();
+		imgUrl = entity.getImgUrl();
 	}
 
 	public Long getId() {
@@ -64,23 +70,6 @@ public class MassageService implements Serializable {
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		MassageService other = (MassageService) obj;
-		return Objects.equals(id, other.id);
 	}
 
 }
