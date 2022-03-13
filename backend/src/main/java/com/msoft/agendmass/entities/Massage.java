@@ -1,12 +1,16 @@
 package com.msoft.agendmass.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,9 +23,14 @@ public class Massage implements Serializable {
 	private Long id;
 	
 	private String title;
+	
+	@Column(columnDefinition = "TEXT")
 	private String description;
 	private Double price;
 	private String imgUrl;
+	
+	@ManyToMany(mappedBy = "massages")
+	private Set<Scheduling> schedules = new HashSet<>();
 	
 	public Massage() {
 	}
@@ -72,6 +81,10 @@ public class Massage implements Serializable {
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+
+	public Set<Scheduling> getSchedules() {
+		return schedules;
 	}
 
 	@Override

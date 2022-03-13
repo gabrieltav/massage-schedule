@@ -1,15 +1,19 @@
 package com.msoft.agendmass.dto;
 
-import java.util.HashSet;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
+import com.msoft.agendmass.entities.Massage;
 import com.msoft.agendmass.entities.Scheduling;
 
-public class SchedulingDTO {
+public class SchedulingDTO implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	private Long id;
 	
-	Set<MassageDTO> massages = new HashSet<>();
+	private List<MassageDTO> massages = new ArrayList<>();
 	
 	public SchedulingDTO() {
 	}
@@ -18,8 +22,9 @@ public class SchedulingDTO {
 		this.id = id;
 	}
 	
-	public SchedulingDTO(Scheduling entity) {
+	public SchedulingDTO(Scheduling entity, Set<Massage>massages) {
 		id = entity.getId();
+		massages.forEach(cat -> this.massages.add(new MassageDTO(cat)));
 	}
 
 	public Long getId() {
@@ -30,7 +35,7 @@ public class SchedulingDTO {
 		this.id = id;
 	}
 
-	public Set<MassageDTO> getMassages() {
+	public List<MassageDTO> getMassages() {
 		return massages;
 	}
 	

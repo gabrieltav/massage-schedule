@@ -8,7 +8,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_sheduling")
+@Table(name = "tb_scheduling")
 public class Scheduling implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -29,7 +28,7 @@ public class Scheduling implements Serializable {
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant date;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany
 	@JoinTable(name = "tb_scheduling_massage",
 			joinColumns = @JoinColumn(name = "scheduling_id"),
 			inverseJoinColumns = @JoinColumn(name = "massage_id"))
