@@ -12,6 +12,9 @@ INSERT INTO tb_massage (title, description, price, img_url) VALUES ('Massagem em
 INSERT INTO tb_massage (title, description, price, img_url) VALUES ('Massagem tântrica', 'A massagem tântrica é um tipo de massagem erótica que também envolve uma ligação espiritual muito forte e presente.', 160.00, 'https://www.vittude.com/blog/wp-content/uploads/massagem-tantrica-1200x900.jpg');
 
 
-INSERT INTO tb_scheduling (date) VALUES (TIMESTAMP WITH TIME ZONE '2021-03-13T20:50:07.12345Z');
+INSERT INTO tb_scheduling (date) VALUES (TIMESTAMP WITH TIME ZONE '2021-03-14T09:00:00.12345Z');
+INSERT INTO tb_scheduling (date) VALUES (TIMESTAMP WITH TIME ZONE '2021-03-14T10:0:00.12345Z');
+INSERT INTO tb_scheduling (date) VALUES (TIMESTAMP WITH TIME ZONE '2021-03-14T20:50:07.12345Z');
 
 INSERT INTO tb_scheduling_massage (scheduling_id, massage_id) VALUES (1, 1);
+INSERT INTO tb_scheduling_massage (scheduling_id, massage_id) VALUES (1, 2);
