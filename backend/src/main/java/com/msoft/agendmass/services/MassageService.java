@@ -20,23 +20,23 @@ import com.msoft.agendmass.services.execeptions.ResourceNotFoundException;
 
 @Service
 public class MassageService {
-	
+
 	@Autowired
 	private MassageRepository repository;
-	
+
 	@Transactional(readOnly = true)
 	public List<MassageDTO> findAll() {
 		List<Massage> list = repository.findAll();
 		return list.stream().map(x -> new MassageDTO(x)).collect(Collectors.toList());
 	}
-	
+
 	@Transactional(readOnly = true)
 	public MassageDTO findById(Long id) {
 		Optional<Massage> obj = repository.findById(id);
 		Massage entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new MassageDTO(entity);
 	}
-	
+
 	@Transactional
 	public MassageDTO insert(MassageDTO dto) {
 		Massage entity = new Massage();
@@ -47,31 +47,28 @@ public class MassageService {
 		entity = repository.save(entity);
 		return new MassageDTO(entity);
 	}
-	
+
 	@Transactional
 	public MassageDTO update(Long id, MassageDTO dto) {
 		try {
-			Massage entity = repository.getOne(id);
+			Massage entity = repository.getById(id);
 			entity.setTitle(dto.getTitle());
 			entity.setDescription(dto.getDescription());
 			entity.setPrice(dto.getPrice());
 			entity.setImgUrl(dto.getImgUrl());
 			entity = repository.save(entity);
 			return new MassageDTO(entity);
-		}
-		catch (EntityNotFoundException e) {
-			throw new ResourceNotFoundException("Id not found " +id);
+		} catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException("Id not found " + id);
 		}
 	}
-	
+
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
-		}
-		catch (EmptyResultDataAccessException e) {
+		} catch (EmptyResultDataAccessException e) {
 			throw new ResourceNotFoundException("Id not found " + id);
-		}
-		catch (DataIntegrityViolationException e) {
+		} catch (DataIntegrityViolationException e) {
 			throw new DatabaseException("Integrity violation");
 		}
 	}

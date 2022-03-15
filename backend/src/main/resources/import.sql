@@ -18,3 +18,5 @@ INSERT INTO tb_scheduling (date) VALUES (TIMESTAMP WITH TIME ZONE '2021-03-14T20
 
 INSERT INTO tb_scheduling_massage (scheduling_id, massage_id) VALUES (1, 1);
 INSERT INTO tb_scheduling_massage (scheduling_id, massage_id) VALUES (1, 2);
+INSERT INTO tb_scheduling_massage (scheduling_id, massage_id) VALUES (2, 3);
+INSERT INTO tb_scheduling_massage (scheduling_id, massage_id) VALUES (3, 4);
