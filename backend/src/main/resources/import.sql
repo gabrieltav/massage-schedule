@@ -1,3 +1,13 @@
+INSERT INTO tb_user (first_name, last_name, email, password) VALUES ('Marcos', 'Vinicius', 'marcos@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO tb_user (first_name, last_name, email, password) VALUES ('Carlos', 'Eduardo', 'carlos@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+
+INSERT INTO tb_role (authority) VALUES ('ROLE_CLIENT');
+INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
+
+INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
+
 INSERT INTO tb_massage (title, description, price, img_url) VALUES ('Massagem sueca', 'A massagem sueca é um tipo de massagem de corpo inteiro que é ideal para pessoas que são iniciantes, têm muita tensão e são sensíveis ao toque. Ela ajuda desfazer os nós musculares e é uma boa escolha para relaxar completamente.', 170.00, 'https://www.institutounidade.com.br/wp-content/uploads/2018/08/massagem-sueca.jpg');
 INSERT INTO tb_massage (title, description, price, img_url) VALUES ('Massagem de aromaterapia', 'A massagem de aromaterapia é um tipo de massagem indicado para pessoas que buscam se curar emocionalmente. Esse tipo de massagem melhora o humor; reduz o estresse e a ansiedade; alivia a tensão muscular e a dor; e reduz os sintomas da depressão.', 150.00, 'https://images.ecycle.com.br/wp-content/uploads/2021/06/16152258/tipos-de-massagem.4.jpg');
 INSERT INTO tb_massage (title, description, price, img_url) VALUES ('Massagem com pedras quentes', 'A massagem com pedras quentes é indicada para pessoas que têm dores musculares e tensão, ou que simplesmente querem relaxar.', 160.00, 'https://images.ecycle.com.br/wp-content/uploads/2021/06/16152102/tipos-de-massagem.3.jpg');
